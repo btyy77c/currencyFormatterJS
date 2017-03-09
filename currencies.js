@@ -7,7 +7,7 @@ var currencies =
     name: 'United Arab Emirates Dirham',
     symbol: 'د.إ.‏',
     formatCurrency: function (number) {
-    	return standardFormat(number) + ' ' + currencies.AED.symbol;
+    	return formatter.standardFormat(number) + ' ' + currencies.AED.symbol;
     }
   },
   AFN:
@@ -15,7 +15,7 @@ var currencies =
     name: 'Afghan Afghani',
     symbol: '؋',
     formatCurrency: function (number) {
-    	return standardFormat(number) + ' ' + currencies.AFN.symbol;
+    	return formatter.standardFormat(number) + currencies.AFN.symbol;
     }
   },
   ALL:
@@ -23,7 +23,7 @@ var currencies =
     name: 'Albanian Lek',
     symbol: 'Lek',
     formatCurrency: function (number) {
-    	return currencies.ALL.symbol + ' ' + standardFormat(number);
+    	return currencies.ALL.symbol + standardFormat(number, '.', ',');
     }
   },
   AMD:
@@ -39,7 +39,7 @@ var currencies =
     name: 'Netherlands Antillean Guilder',
     symbol: 'ƒ',
     formatCurrency: function (number) {
-    	return currencies.ANG.symbol + ' ' + standardFormat(number, '.', ',');
+    	return currencies.ANG.symbol + standardFormat(number);
     }
   },
   AOA:
@@ -47,7 +47,7 @@ var currencies =
     name: 'Angolan Kwanza',
     symbol: 'Kz',
     formatCurrency: function (number) {
-    	return currencies.AOA.symbol + ' ' + standardFormat(number);
+    	return currencies.AOA.symbol + standardFormat(number);
     }
   },
   ARS:
@@ -63,7 +63,7 @@ var currencies =
     name: 'Australian Dollar',
     symbol: '$',
     formatCurrency: function (number) {
-    	return currencies.AUD.symbol + ' ' + standardFormat(number);
+    	return currencies.AUD.symbol + standardFormat(number);
     }
   },
   AWG:
@@ -71,7 +71,7 @@ var currencies =
     name: 'Aruban Florin',
     symbol: 'ƒ',
     formatCurrency: function (number) {
-    	return currencies.AWG.symbol + ' ' + standardFormat(number);
+    	return currencies.AWG.symbol + standardFormat(number);
     }
   },
   AZN:
@@ -79,7 +79,7 @@ var currencies =
     name: 'Azerbaijani Manat',
     symbol: '₼',
     formatCurrency: function (number) {
-    	return currencies.AZN.symbol + ' ' + standardFormat(number, ' ', ',');
+    	return  standardFormat(number, ' ', ',') + ' ' + currencies.AZN.symbol;
     }
   },
   BAM:
@@ -87,7 +87,7 @@ var currencies =
     name: 'Bosnia-Herzegovina Convertible Mark',
     symbol: 'KM',
     formatCurrency: function (number) {
-    	return currencies.BAM.symbol + ' ' + standardFormat(number);
+    	return standardFormat(number, '.', ',') + ' ' + currencies.BAM.symbol;
     }
   },
   BBD:
@@ -95,30 +95,32 @@ var currencies =
     name: 'Barbadian Dollar',
     symbol: '$',
     formatCurrency: function (number) {
-    	return currencies.BBD.symbol + ' ' + standardFormat(number);
+    	return currencies.BBD.symbol + standardFormat(number);
     }
   },
-  BDT: {
+  BDT:
+  {
     name: 'Bangladeshi Taka',
     symbol: '৳',
     formatCurrency: function (number) {
-    	return currencies.BDT.symbol + ' ' + standardFormat(number);
+    	return currencies.BDT.symbol + ' ' + noDecimals(number);
     }
   },
   BGN:
   {
+    // Check
     name: 'Bulgarian Lev',
     symbol: 'лв',
     formatCurrency: function (number) {
-    	return currencies.BGN.symbol + ' ' + standardFormat(number);
+    	return standardFormat(number, ' ', ',') + ' ' + currencies.BGN.symbol;
     }
   },
   BHD:
   {
     name: 'Bahraini Dinar',
-    symbol: 'د.ب.‏',
+    symbol: 'BD',
     formatCurrency: function (number) {
-    	return currencies.BHD.symbol + ' ' + standardFormat(number);
+    	return standardFormat(number, ',', '.', 3) + ' ' + currencies.BHD.symbol;
     }
   },
   BIF:
@@ -126,15 +128,16 @@ var currencies =
     name: 'Burundian Franc',
     symbol: 'FBu',
     formatCurrency: function (number) {
-    	return currencies.BIF.symbol + ' ' + standardFormat(number);
+    	return  noDecimals(number) + currencies.BIF.symbol;
     }
   },
   BMD:
   {
+    // Check
     name: 'Bermudan Dollar',
     symbol: '$',
     formatCurrency: function (number) {
-    	return currencies.BMD.symbol + ' ' + standardFormat(number);
+    	return currencies.BMD.symbol + standardFormat(number);
     }
   },
   BND:
@@ -142,7 +145,7 @@ var currencies =
     name: 'Brunei Dollar',
     symbol: '$',
     formatCurrency: function (number) {
-    	return currencies.BND.symbol + ' ' + standardFormat(number);
+    	return currencies.BND.symbol + standardFormat(number, '.', ',');
     }
   },
   BOB:
@@ -150,7 +153,7 @@ var currencies =
     name: 'Bolivian Boliviano',
     symbol: 'Bs',
     formatCurrency: function (number) {
-    	return currencies.BOB.symbol + ' ' + standardFormat(number);
+    	return currencies.BOB.symbol + ' ' + standardFormat(number, '.', ',');
     }
   },
   BRL:
@@ -158,15 +161,14 @@ var currencies =
     name: 'Brazilian Real',
     symbol: 'R$',
     formatCurrency: function (number) {
-    	return currencies.BRL.symbol + ' ' + standardFormat(number);
+    	return currencies.BRL.symbol + ' ' + standardFormat(number, '.', ',');
     }
   },
   BSD:
   {
     name: 'Bahamian Dollar',
-    symbol: '$',
     formatCurrency: function (number) {
-    	return currencies.BSD.symbol + ' ' + standardFormat(number);
+    	return currencies.BSD.symbol + standardFormat(number);
     }
   },
   BTC:
@@ -174,7 +176,7 @@ var currencies =
     name: 'Bitcoin',
     symbol: 'Ƀ',
     formatCurrency: function (number) {
-    	return currencies.BTC.symbol + ' ' + standardFormat(number);
+    	return standardFormat(number) + currencies.BTC.symbol;
     }
   },
   BTN:
@@ -182,7 +184,7 @@ var currencies =
     name: 'Bhutanese Ngultrum',
     symbol: 'Nu',
     formatCurrency: function (number) {
-    	return currencies.BTN.symbol + ' ' + standardFormat(number);
+    	return currencies.BTN.symbol + '. ' + standardFormat(number, ',', '.', 1);
     }
   },
   BWP:
@@ -190,11 +192,12 @@ var currencies =
     name: 'Botswanan Pula',
     symbol: 'P',
     formatCurrency: function (number) {
-    	return currencies.BWP.symbol + ' ' + standardFormat(number);
+    	return currencies.BWP.symbol + standardFormat(number);
     }
   },
   BYN:
   {
+    // Check
     name: 'Belarusian Ruble',
     symbol: '????',
     formatCurrency: function (number) {
@@ -204,9 +207,9 @@ var currencies =
   BYR:
   {
     name: 'Belarusian Ruble (pre-2016)',
-    symbol: 'p',
+    symbol: 'p.',
     formatCurrency: function (number) {
-    	return currencies.BYR.symbol + ' ' + standardFormat(number);
+    	return '. ' + noDecimals(number, ' ', ',') + ' ' + currencies.BYR.symbol ;
     }
   },
   BZD:
@@ -214,22 +217,24 @@ var currencies =
     name: 'Belize Dollar',
     symbol: 'BZ$',
     formatCurrency: function (number) {
-    	return currencies.BZD.symbol + ' ' + standardFormat(number);
+    	return currencies.BZD.symbol + standardFormat(number);
     }
   },
   CAD:
   {
+    // Check
     name: 'Canadian Dollar',
     symbol: '$',
     formatCurrency: function (number) {
-    	return currencies.CAD.symbol + ' ' + standardFormat(number);
+    	return currencies.CAD.symbol + standardFormat(number);
     }
   },
-  CDF: {
+  CDF:
+  {
     name: 'Congolese Franc',
     symbol: 'FC',
     formatCurrency: function (number) {
-    	return currencies.CDF.symbol + ' ' + standardFormat(number);
+    	return standardFormat(number) + currencies.CDF.symbol;
     }
   },
   CHF:
@@ -237,15 +242,16 @@ var currencies =
     name: 'Swiss Franc',
     symbol: 'CHF',
     formatCurrency: function (number) {
-    	return currencies.CHF.symbol + ' ' + standardFormat(number);
+    	return  standardFormat(number, "'", '.') + ' ' + currencies.CHF.symbol;
     }
   },
   CLF:
   {
+    // Check
     name: 'Chilean Unit of Account (UF)',
-    symbol: '???',
+    symbol: '',
     formatCurrency: function (number) {
-    	return currencies.CLF.symbol + ' ' + standardFormat(number);
+    	return currencies.CLF.symbol + standardFormat(number);
     }
   },
   CLP:
@@ -253,15 +259,16 @@ var currencies =
     name: 'Chilean Peso',
     symbol: '$',
     formatCurrency: function (number) {
-    	return currencies.CLP.symbol + ' ' + standardFormat(number);
+    	return currencies.CLP.symbol + ' ' + noDecimals(number, '.', ',');
     }
   },
   CNY:
   {
+    // Check
     name: 'Chinese Yuan',
     symbol: '¥',
     formatCurrency: function (number) {
-    	return currencies.CNY.symbol + ' ' + standardFormat(number);
+    	return currencies.CNY.symbol + standardFormat(number);
     }
   },
   COP:
@@ -269,7 +276,7 @@ var currencies =
     name: 'Colombian Peso',
     symbol: '$'
     formatCurrency: function (number) {
-    	return currencies.COP.symbol + ' ' + standardFormat(number);
+    	return currencies.COP.symbol + ' ' + standardFormat(number, '.', ',');
     }
   },
   CRC:
@@ -277,7 +284,7 @@ var currencies =
     name: 'Costa Rican Colón',
     symbol: '₡',
     formatCurrency: function (number) {
-    	return currencies.CRC.symbol + ' ' + standardFormat(number);
+    	return currencies.CRC.symbol + standardFormat(number, '.', ',');
     }
   },
   CUC:
@@ -285,7 +292,7 @@ var currencies =
     name: 'Cuban Convertible Peso',
     symbol: 'CUC',
     formatCurrency: function (number) {
-    	return currencies.CUC.symbol + ' ' + standardFormat(number);
+    	return currencies.CUC.symbol + standardFormat(number);
     }
   },
   CUP:
@@ -293,15 +300,16 @@ var currencies =
     name: 'Cuban Peso',
     symbol: '$MN',
     formatCurrency: function (number) {
-    	return currencies.CUP.symbol + ' ' + standardFormat(number);
+    	return currencies.CUP.symbol + standardFormat(number);
     }
   },
   CVE:
   {
+    // Check
     name: 'Cape Verdean Escudo',
     symbol: '$',
     formatCurrency: function (number) {
-    	return currencies.CVE.symbol + ' ' + standardFormat(number);
+    	return currencies.CVE.symbol + standardFormat(number);
     }
   },
   CZK:
@@ -309,7 +317,7 @@ var currencies =
     name: 'Czech Republic Koruna',
     symbol: 'Kč',
     formatCurrency: function (number) {
-    	return currencies.CZK.symbol + ' ' + standardFormat(number);
+    	return  + ' ' + standardFormat(number, ' ', ',') + ' ' + currencies.CZK.symbol;
     }
   },
   DJF:
@@ -317,15 +325,15 @@ var currencies =
     name: 'Djiboutian Franc',
     symbol: 'Fdj',
     formatCurrency: function (number) {
-    	return currencies.DJF.symbol + ' ' + standardFormat(number);
+    	return  noDecimals(number) + currencies.DJF.symbol;
     }
   },
   DKK:
   {
     name: 'Danish Krone',
-    symbol: 'kr',
+    symbol: 'kr.',
     formatCurrency: function (number) {
-    	return currencies.DKK.symbol + ' ' + standardFormat(number);
+    	return standardFormat(number, '', ',') + ' ' + currencies.DKK.symbol;
     }
   },
   DOP:
@@ -333,7 +341,7 @@ var currencies =
     name: 'Dominican Peso',
     symbol: 'RD$',
     formatCurrency: function (number) {
-    	return currencies.DOP.symbol + ' ' + standardFormat(number);
+    	return currencies.DOP.symbol + standardFormat(number);
     }
   },
   DZD:
@@ -346,6 +354,7 @@ var currencies =
   },
   EEK:
   {
+    // Check
     name: 'Estonian Kroon',
     symbol: '',
     formatCurrency: function (number) {
@@ -365,22 +374,23 @@ var currencies =
     name: 'Eritrean Nakfa',
     symbol: 'Nfk',
     formatCurrency: function (number) {
-    	return currencies.ERN.symbol + ' ' + standardFormat(number);
+    	return  standardFormat(number) + currencies.ERN.symbol;
     }
   },
   ETB:
   {
     name: 'Ethiopian Birr',
-    symbol: '',
+    symbol: 'ETB',
     formatCurrency: function (number) {
-    	return currencies.ETB.symbol + ' ' + standardFormat(number);
+    	return currencies.ETB.symbol + standardFormat(number);
     }
   },
-  EUR: {
+  EUR:
+  {
     name: 'Euro',
-    symbol: '',
+    symbol: '€',
     formatCurrency: function (number) {
-    	return currencies.EUR.symbol + ' ' + standardFormat(number);
+    	return standardFormat(number, ' ', ',') + ' ' + currencies.EUR.symbol;
     }
   },
   FJD:
@@ -388,7 +398,7 @@ var currencies =
     name: 'Fijian Dollar',
     symbol: '$',
     formatCurrency: function (number) {
-    	return currencies.FJD.symbol + ' ' + standardFormat(number);
+    	return currencies.FJD.symbol + standardFormat(number);
     }
   },
   FKP:
@@ -396,138 +406,956 @@ var currencies =
     name: 'Falkland Islands Pound',
     symbol: '£',
     formatCurrency: function (number) {
-    	return currencies.FKP.symbol + ' ' + standardFormat(number);
+    	return currencies.FKP.symbol + standardFormat(number);
     }
   },
-  GBP: {
+  GBP:
+  {
     name: 'British Pound Sterling',
     symbol: '£',
     formatCurrency: function (number) {
-    	return currencies.GBP.symbol + ' ' + standardFormat(number);
+    	return currencies.GBP.symbol + standardFormat(number, ',', '.');
     }
   },
   GEL:
   {
-    name: 'Georgian Lari'
+    name: 'Georgian Lari',
+    symbol: 'Lari',
+    formatCurrency: function (number) {
+    	return standardFormat(number, ' ', ',') + ' ' + currencies.GEL.symbol;
+    }
   },
- "GGP"=>"Guernsey Pound",
- "GHS"=>"Ghanaian Cedi",
- "GIP"=>"Gibraltar Pound",
- "GMD"=>"Gambian Dalasi",
- "GNF"=>"Guinean Franc",
- "GTQ"=>"Guatemalan Quetzal",
- "GYD"=>"Guyanaese Dollar",
- "HKD"=>"Hong Kong Dollar",
- "HNL"=>"Honduran Lempira",
- "HRK"=>"Croatian Kuna",
- "HTG"=>"Haitian Gourde",
- "HUF"=>"Hungarian Forint",
- "IDR"=>"Indonesian Rupiah",
- "ILS"=>"Israeli New Sheqel",
- "IMP"=>"Manx pound",
- "INR"=>"Indian Rupee",
- "IQD"=>"Iraqi Dinar",
- "IRR"=>"Iranian Rial",
- "ISK"=>"Icelandic Króna",
- "JEP"=>"Jersey Pound",
- "JMD"=>"Jamaican Dollar",
- "JOD"=>"Jordanian Dinar",
- "JPY"=>"Japanese Yen",
- "KES"=>"Kenyan Shilling",
- "KGS"=>"Kyrgystani Som",
- "KHR"=>"Cambodian Riel",
- "KMF"=>"Comorian Franc",
- "KPW"=>"North Korean Won",
- "KRW"=>"South Korean Won",
- "KWD"=>"Kuwaiti Dinar",
- "KYD"=>"Cayman Islands Dollar",
- "KZT"=>"Kazakhstani Tenge",
- "LAK"=>"Laotian Kip",
- "LBP"=>"Lebanese Pound",
- "LKR"=>"Sri Lankan Rupee",
- "LRD"=>"Liberian Dollar",
- "LSL"=>"Lesotho Loti",
- "LTL"=>"Lithuanian Litas",
- "LVL"=>"Latvian Lats",
- "LYD"=>"Libyan Dinar",
- "MAD"=>"Moroccan Dirham",
- "MDL"=>"Moldovan Leu",
- "MGA"=>"Malagasy Ariary",
- "MKD"=>"Macedonian Denar",
- "MMK"=>"Myanma Kyat",
- "MNT"=>"Mongolian Tugrik",
- "MOP"=>"Macanese Pataca",
- "MRO"=>"Mauritanian Ouguiya",
- "MTL"=>"Maltese Lira",
- "MUR"=>"Mauritian Rupee",
- "MVR"=>"Maldivian Rufiyaa",
- "MWK"=>"Malawian Kwacha",
- "MXN"=>"Mexican Peso",
- "MYR"=>"Malaysian Ringgit",
- "MZN"=>"Mozambican Metical",
- "NAD"=>"Namibian Dollar",
- "NGN"=>"Nigerian Naira",
- "NIO"=>"Nicaraguan Córdoba",
- "NOK"=>"Norwegian Krone",
- "NPR"=>"Nepalese Rupee",
- "NZD"=>"New Zealand Dollar",
- "OMR"=>"Omani Rial",
- "PAB"=>"Panamanian Balboa",
- "PEN"=>"Peruvian Nuevo Sol",
- "PGK"=>"Papua New Guinean Kina",
- "PHP"=>"Philippine Peso",
- "PKR"=>"Pakistani Rupee",
- "PLN"=>"Polish Zloty",
- "PYG"=>"Paraguayan Guarani",
- "QAR"=>"Qatari Rial",
- "RON"=>"Romanian Leu",
- "RSD"=>"Serbian Dinar",
- "RUB"=>"Russian Ruble",
- "RWF"=>"Rwandan Franc",
- "SAR"=>"Saudi Riyal",
- "SBD"=>"Solomon Islands Dollar",
- "SCR"=>"Seychellois Rupee",
- "SDG"=>"Sudanese Pound",
- "SEK"=>"Swedish Krona",
- "SGD"=>"Singapore Dollar",
- "SHP"=>"Saint Helena Pound",
- "SLL"=>"Sierra Leonean Leone",
- "SOS"=>"Somali Shilling",
- "SRD"=>"Surinamese Dollar",
- "STD"=>"São Tomé and Príncipe Dobra",
- "SVC"=>"Salvadoran Colón",
- "SYP"=>"Syrian Pound",
- "SZL"=>"Swazi Lilangeni",
- "THB"=>"Thai Baht",
- "TJS"=>"Tajikistani Somoni",
- "TMT"=>"Turkmenistani Manat",
- "TND"=>"Tunisian Dinar",
- "TOP"=>"Tongan Pa?anga",
- "TRY"=>"Turkish Lira",
- "TTD"=>"Trinidad and Tobago Dollar",
- "TWD"=>"New Taiwan Dollar",
- "TZS"=>"Tanzanian Shilling",
- "UAH"=>"Ukrainian Hryvnia",
- "UGX"=>"Ugandan Shilling",
- "USD"=>"United States Dollar",
- "UYU"=>"Uruguayan Peso",
- "UZS"=>"Uzbekistan Som",
- "VEF"=>"Venezuelan Bolívar Fuerte",
- "VND"=>"Vietnamese Dong",
- "VUV"=>"Vanuatu Vatu",
- "WST"=>"Samoan Tala",
- "XAF"=>"CFA Franc BEAC",
- "XAG"=>"Silver Ounce",
- "XAU"=>"Gold Ounce",
- "XCD"=>"East Caribbean Dollar",
- "XDR"=>"Special Drawing Rights",
- "XOF"=>"CFA Franc BCEAO",
- "XPD"=>"Palladium Ounce",
- "XPF"=>"CFP Franc",
- "XPT"=>"Platinum Ounce",
- "YER"=>"Yemeni Rial",
- "ZAR"=>"South African Rand",
- "ZMK"=>"Zambian Kwacha (pre-2013)",
- "ZMW"=>"Zambian Kwacha",
- "ZWL"=>"Zimbabwean Dollar"
+  GGP:
+  {
+    name: 'Guernsey Pound',
+    symbol: '£',
+    formatCurrency: function (number) {
+    	return currencies.GGP.symbol + standardFormat(number, '.',, ',');
+    }
+  },
+  GHS:
+  {
+    name: 'Ghanaian Cedi',
+    symbol: '₵',
+    formatCurrency: function (number) {
+    	return currencies.GHS.symbol + standardFormat(number);
+    }
+  },
+  GIP:
+  {
+    name: 'Gibraltar Pound',
+    symbol: '£',
+    formatCurrency: function (number) {
+    	return currencies.GIP.symbol + standardFormat(number);
+    }
+  },
+  GMD:
+  {
+    name: 'Gambian Dalasi',
+    symbol: 'D',
+    formatCurrency: function (number) {
+    	return standardFormat(number) + currencies.GIP.symbol;
+    }
+  },
+  GNF:
+  {
+    name: 'Guinean Franc',
+    symbol: 'FG',
+    formatCurrency: function (number) {
+    	return  noDecimals(number) + currencies.GNF.symbol;
+    }
+  },
+  GTQ:
+  {
+    name: 'Guatemalan Quetzal',
+    symbol: 'Q',
+    formatCurrency: function (number) {
+    	return currencies.GTQ.symbol + standardFormat(number);
+    }
+  },
+  GYD:
+  {
+    name: 'Guyanaese Dollar',
+    symbol: '$',
+    formatCurrency: function (number) {
+    	return currencies.GYD.symbol + standardFormat(number);
+    }
+  },
+  HKD:
+  {
+    name: 'Hong Kong Dollar',
+    symbol: 'HK$',
+    formatCurrency: function (number) {
+    	return currencies.HKD.symbol  + standardFormat(number);
+    }
+  },
+  HNL:
+  {
+    name: 'Honduran Lempira',
+    symbol: 'L.',
+    formatCurrency: function (number) {
+    	return currencies.HKD.symbol + ' ' + standardFormat(number);
+    }
+  },
+  HRK:
+  {
+    name: 'Croatian Kuna',
+		symbol: 'kn',
+    formatCurrency: function (number) {
+    	return standardFormat(number, '.', ',') + ' ' + currencies.HRK.symbol;
+    }
+  },
+  HTG:
+  {
+    name: 'Haitian Gourde',
+		symbol: "G",
+    formatCurrency: function (number) {
+    	return currencies.HTG.symbol + standardFormat(number);
+    }
+  },
+  HUF:
+  {
+    name: 'Hungarian Forint',
+		symbol: 'Ft',
+    formatCurrency: function (number) {
+    	return standardFormat(number, ' ', ',') + ' ' + currencies.HUF.symbol;
+    }
+  },
+  IDR:
+  {
+    name: 'Indonesian Rupiah',
+		symbol: 'Rp',
+    formatCurrency: function (number) {
+    	return currencies.IDR.symbol + standardFormat(number, '.', ',');
+    }
+  },
+  ILS:
+  {
+    name: 'sraeli New Sheqel',
+		symbol: "₪",
+    formatCurrency: function (number) {
+    	return currencies.ILS.symbol + ' ' +standardFormat(number);
+    }
+  },
+  IMP:
+  {
+    name: 'Manx pound',
+    symbol: '£',
+    formatCurrency: function (number) {
+    	return currencies.IMP.symbol + standardFormat(number, '.', ',');
+    }
+  },
+  INR:
+  {
+    name: 'Indian Rupee', // TODO
+    symbol: "₹",
+    formatCurrency: function (number) {
+      return currencies.INR.symbol + INRCurrency(number);
+    }
+  },
+  IQD:
+  {
+    name: 'Iraqi Dinar',
+		symbol: "د.ع.‏",
+    formatCurrency: function (number) {
+      return currencies.INR.symbol + ' ' + standardFormat(number);
+    }
+  },
+  IRR:
+  {
+    name: 'Iranian Rial',
+		symbol: "﷼",
+		"symbolOnLeft": true,
+    formatCurrency: function (number) {
+      return currencies.IRR.symbol + ' ' + standardFormat(number, ',', "/");
+    }
+  },
+  ISK:
+  {
+    name: 'Icelandic Króna',
+		symbol: 'kr.',
+    formatCurrency: function (number) {
+      return standardFormat(number, '.', ',') + ' ' + currencies.ISK.symbol;
+    }
+  },
+  JEP:
+  {
+    name: 'Jersey Pound',
+    symbol: '£',
+    formatCurrency: function (number) {
+      return currencies.JEP.symbol + standardFormat(number, '.', ',');
+    }
+  },
+  JMD:
+  {
+    name: 'Jamaican Dollar',
+		symbol: "J$",
+    formatCurrency: function (number) {
+      return currencies.JMD.symbol + standardFormat(number);
+    }
+  },
+  JOD:
+  {
+    name: 'Jordanian Dinar',
+		symbol: "د.ا.‏",
+    formatCurrency: function (number) {
+      return currencies.JOD.symbol + ' ' + standardFormat(number, ',', '.', 3);
+    }
+  },
+  JPY:
+  {
+    name: 'Japanese Yen',
+		symbol: '¥',
+    formatCurrency: function (number) {
+      return currencies.JPY.symbol + ' ' + standardFormat(number);
+    }
+  },
+  KES:
+  {
+    name: 'Kenyan Shilling',
+		symbol: 'S',
+    formatCurrency: function (number) {
+      return currencies.KES.symbol + ' ' + standardFormat(number);
+    }
+  },
+  KGS:
+  {
+    name: 'Kyrgystani Som',
+		symbol: 'сом',
+    formatCurrency: function (number) {
+      return standardFormat(number, ' ', '-') + ' ' + currencies.KGS.symbol;
+    }
+  },
+  KHR:
+  {
+    name: 'Cambodian Riel',
+		symbol: '៛',
+    formatCurrency: function (number) {
+      return standardFormat(number) + currencies.KHR.symbol;
+    }
+  },
+  KMF:
+  {
+    name: 'Comorian Franc',
+		symbol: 'CF',
+    formatCurrency: function (number) {
+      return standardFormat(number) + currencies.KMF.symbol;
+    }
+  },
+  KPW:
+  {
+    name: 'North Korean Won',
+		symbol: '₩',
+    formatCurrency: function (number) {
+      return currencies.KPW.symbol + standardFormat(number);
+    }
+  },
+  KRW:
+  {
+    name: 'South Korean Won',
+		symbol: '₩',
+    formatCurrency: function (number) {
+      return currencies.KRW.symbol + standardFormat(number);
+    }
+  },
+  KWD:
+  {
+    name: 'Kuwaiti Dinar',
+		symbol: 'ك',
+    formatCurrency: function (number) {
+      return currencies.KWD.symbol + ' ' + standardFormat(number, ',', '.', 3);
+    }
+  },
+  KYD:
+  {
+    name: 'Cayman Islands Dollar',
+		symbol: '$',
+    formatCurrency: function (number) {
+      return currencies.KYD.symbol + standardFormat(number);
+    }
+  },
+  KZT:
+  {
+    name: 'Kazakhstani Tenge',
+		symbol: '₸',
+    formatCurrency: function (number) {
+      return currencies.KZT.symbol + standardFormat(number, ' ', '-');
+    }
+  },
+  LAK:
+  {
+    name: 'Laotian Kip',
+		symbol: '₭',
+    formatCurrency: function (number) {
+      return standardFormat(number) + currencies.LAK.symbol;
+    }
+  },
+  LBP:
+  {
+    name: 'Lebanese Pound',
+    symbol: 'ل.ل',
+    formatCurrency: function (number) {
+      return standardFormat(number) + ' ' + currencies.LBP.symbol;
+    }
+  },
+  LKR:
+  {
+    name: 'Sri Lankan Rupee',
+    symbol: "₨",
+    formatCurrency: function (number) {
+      return standardFormat(number) + ' ' + currencies.LBP.symbol;
+    }
+  },
+  LRD:
+  {
+    name: 'Liberian Dollar',
+		symbol: "$",
+    formatCurrency: function (number) {
+      return currencies.LRD.symbol + standardFormat(number);
+    }
+  },
+  LSL:
+  {
+    name: 'Lesotho Loti',
+		symbol: 'M',
+    formatCurrency: function (number) {
+      return standardFormat(number, ',', '.', 2 ) + currencies.LSL.symbol;
+    }
+  },
+ LYD:
+ {
+   name: 'Libyan Dinar',
+   symbol: 'LD',
+   formatCurrency: function (number) {
+     return currencies.LYD.symbol +  standardFormat(number, ',', '.', 3 );
+   }
+ },
+ MAD:
+ {
+   name: 'Moroccan Dirham',
+   symbol: "د.م.‏",
+   formatCurrency: function (number) {
+     return currencies.MAD.symbol +  ' ' + standardFormat(number, ',', '.', 2 );
+   }
+ },
+ MDL:
+ {
+   name: 'Moldovan Leu'
+   symbol: 'lei',
+   formatCurrency: function (number) {
+     return standardFormat(number, ',', '.', 2 ) + ' ' + currencies.MDL.symbol;
+   }
+ },
+ MGA:
+ {
+   name: 'Malagasy Ariary',
+   symbol: 'Ar',
+   formatCurrency: function (number) {
+     return currencies.MGA.symbol +  noDecimals(number, ',');
+   }
+ },
+ MKD:
+ {
+   name: 'Macedonian Denar',
+   symbol: 'ден.',
+   formatCurrency: function (number) {
+     return standardFormat(number, '.', ',')  + ' ' + currencies.MKD.symbol;
+   }
+ },
+ MMK:
+ {
+   name: 'Myanma Kyat'
+   symbol: 'K',
+   formatCurrency: function (number) {
+     return currencies.MMK.symbol +  standardFormat(number);
+   }
+ },
+ MNT:
+ {
+   name: 'Mongolian Tugrik',
+   symbol: "₮",
+   formatCurrency: function (number) {
+     return currencies.MMK.symbol +  standardFormat(number, ' ', ',');
+   }
+ },
+ MOP:
+ {
+   name: 'Macanese Pataca',
+   symbol: 'MOP$',
+   formatCurrency: function (number) {
+     return currencies.MOP.symbol +  standardFormat(number);
+   }
+ },
+ MRO:
+ {
+   name: 'Mauritanian Ouguiya',
+   symbol: 'UM',
+   formatCurrency: function (number) {
+     return  standardFormat(number) + currencies.MRO.symbol;
+   }
+ },
+ MTL:
+ {
+   name: 'Maltese Lira',
+   symbol: '₤',
+   formatCurrency: function (number) {
+     return currencies.MTL.symbol +  standardFormat(number);
+   }
+ },
+ MUR:
+ {
+   name: 'Mauritian Rupee',
+   symbol: '₨',
+   formatCurrency: function (number) {
+     return currencies.MUR.symbol +  standardFormat(number);
+   }
+ },
+ MVR:
+ {
+   name: 'Maldivian Rufiyaa',
+   symbol: 'MVR',
+   formatCurrency: function (number) {
+     return  standardFormat(number, ',', '.', 1 )  + ' ' + currencies.MVR.symbol;
+   }
+ },
+ MWK:
+ {
+   name: 'Malawian Kwacha',
+   symbol: 'MK',
+   formatCurrency: function (number) {
+     return currencies.MWK.symbol +  standardFormat(number) ;
+   }
+ },
+ MXN:
+ {
+   name: 'Mexican Peso',
+   symbol: '$',
+   formatCurrency: function (number) {
+     return currencies.MXN.symbol +  standardFormat(number) ;
+   }
+ },
+ MYR:
+ {
+   name: 'Malaysian Ringgit',
+   symbol: 'RM',
+   formatCurrency: function (number) {
+     return currencies.MYR.symbol +  standardFormat(number);
+   }
+ },
+ MZN:
+ {
+   name: 'Mozambican Metical',
+   symbol: 'MT',
+   formatCurrency: function (number) {
+     return currencies.MZN.symbol +  noDecimals(number);
+   }
+ },
+ NAD:
+ {
+   name: 'Namibian Dollar',
+   symbol: '$',
+   formatCurrency: function (number) {
+     return currencies.NAD.symbol +  standardFormat(number) ;
+   }
+ },
+ NGN:
+ {
+   name: 'Nigerian Naira',
+   symbol: '₦',
+   formatCurrency: function (number) {
+     return currencies.NGN.symbol +  standardFormat(number);
+   }
+ },
+ NIO:
+ {
+   name: 'Nicaraguan Córdoba',
+   symbol: 'C$',
+   formatCurrency: function (number) {
+     return currencies.NIO.symbol +  ' ' + standardFormat(number);
+   }
+ },
+ NOK:
+ {
+   name: 'Norwegian Krone',
+   symbol: 'kr',
+   formatCurrency: function (number) {
+     return currencies.NOK.symbol +  ' ' + standardFormat(number, ' ', ',');
+   }
+ },
+ NPR:
+ {
+   name: 'Nepalese Rupee',
+   symbol: "₨",
+   formatCurrency: function (number) {
+     return currencies.NPR.symbol +  standardFormat(number);
+   }
+ },
+ NZD:
+ {
+   name: 'New Zealand Dollar',
+   symbol: "$",
+   formatCurrency: function (number) {
+     return currencies.NZD.symbol +  standardFormat(number);
+   }
+ },
+ OMR:
+ {
+   name: 'Omani Rial',
+   symbol: "﷼",
+   formatCurrency: function (number) {
+     return currencies.OMR.symbol +  ' ' + standardFormat(number, ',', '.', 3 );
+   }
+ },
+ PAB:
+ {
+   name: 'Panamanian Balboa',
+   symbol: "B/.",
+   formatCurrency: function (number) {
+     return currencies.PAB.symbol +  ' ' + standardFormat(number);
+   }
+ },
+ PEN:
+ {
+   name: 'Peruvian Nuevo Sol',
+   symbol: "S/.",
+   formatCurrency: function (number) {
+     return currencies.PEN.symbol +  ' ' + standardFormat(number);
+   }
+ },
+ PGK:
+ {
+   name: 'Papua New Guinean Kina'
+   symbol: "K",
+   formatCurrency: function (number) {
+     return currencies.PGK.symbol +  standardFormat(number) ;
+   }
+ },
+ PHP:
+ {
+   name: 'Philippine Peso',
+   symbol: "₱",
+   formatCurrency: function (number) {
+     return currencies.PHP.symbol +  standardFormat(number);
+   }
+ },
+ PKR:
+ {
+   name: 'Pakistani Rupee',
+   symbol: "₨",
+   formatCurrency: function (number) {
+     return currencies.PKR.symbol +  standardFormat(number);
+   }
+ },
+ PLN:
+ {
+   name: 'Polish Zloty',
+   symbol: "zł",
+   formatCurrency: function (number) {
+     return  standardFormat(number, ' ', ',')  + ' ' + currencies.PLN.symbol;
+   }
+ },
+ PYG:
+ {
+   name: 'Paraguayan Guarani',
+   symbol: "₲",
+   formatCurrency: function (number) {
+     return currencies.PYG.symbol +  ' ' + standardFormat(number) ;
+   }
+ },
+ QAR:
+ {
+   name: 'Qatari Rial',
+   symbol: "﷼",
+   formatCurrency: function (number) {
+     return currencies.QAR.symbol +  ' ' + standardFormat(number);
+   }
+ },
+ RON:
+ {
+   name: 'Romanian Leu',
+   symbol: "lei",
+   formatCurrency: function (number) {
+     return  standardFormat(number, '.', ',')  + ' ' + currencies.RON.symbol;
+   }
+ },
+ RSD:
+ {
+   name: 'Serbian Dinar',
+   symbol: "Дин.",
+   formatCurrency: function (number) {
+     return  standardFormat(number, '.', ',')  + ' ' + currencies.RSD.symbol;
+   }
+ },
+ RUB: {
+   name: 'Russian Ruble',
+   symbol: "₽",
+   formatCurrency: function (number) {
+     return  standardFormat(number, ' ', ',')  + ' ' + currencies.RUB.symbol;
+   }
+ },
+ RWF:
+ {
+   name: 'Rwandan Franc',
+   symbol: "RWF",
+   formatCurrency: function (number) {
+     return currencies.RWF.symbol +  ' ' + standardFormat(number, ' ', ',') ;
+   }
+ },
+ SAR:
+ {
+   name: 'Saudi Riyal',
+   symbol: "﷼",
+   formatCurrency: function (number) {
+     return currencies.SAR.symbol +  ' ' + standardFormat(number);
+   }
+ },
+ SBD:
+ {
+   name: 'Solomon Islands Dollar',
+   symbol: "$",
+   formatCurrency: function (number) {
+     return currencies.SBD.symbol +  standardFormat(number);
+   }
+ },
+ SCR:
+ {
+   name: 'Seychellois Rupee',
+   symbol: "₨",
+   formatCurrency: function (number) {
+     return currencies.SCR.symbol +  standardFormat(number);
+   }
+ },
+ SDG:
+ {
+   name: 'Sudanese Pound',
+   symbol: "£‏",
+   formatCurrency: function (number) {
+     return currencies.SDG.symbol +  standardFormat(number) ;
+   }
+ },
+ SEK:
+ {
+   name: 'Swedish Krona',
+   symbol: "kr",
+   formatCurrency: function (number) {
+     return  standardFormat(number, '.', ',')  + ' ' + currencies.SEK.symbol;
+   }
+ },
+ SGD:
+ {
+   name: 'Singapore Dollar',
+   symbol: "$",
+   formatCurrency: function (number) {
+     return currencies.SGD.symbol +  standardFormat(number);
+   }
+ },
+ SHP:
+ {
+   name: 'Saint Helena Pound',
+   symbol: "£",
+   formatCurrency: function (number) {
+     return currencies.SHP.symbol +  standardFormat(number);
+   }
+ },
+ SLL:
+ {
+   name: 'Sierra Leonean Leone',
+   symbol: "Le",
+   formatCurrency: function (number) {
+     return currencies.SLL.symbol +  standardFormat(number);
+   }
+ },
+ SOS:
+ {
+   name: 'Somali Shilling',
+   symbol: "S",
+   formatCurrency: function (number) {
+     return currencies.SOS.symbol +  standardFormat(number);
+   }
+ },
+ SRD:
+ {
+   name: 'Surinamese Dollar',
+   symbol: "$"
+   formatCurrency: function (number) {
+     return currencies.SRD.symbol +  standardFormat(number);
+   }
+ },
+ STD:
+ {
+   name: 'São Tomé and Príncipe Dobra',
+   symbol: "Db",
+   formatCurrency: function (number) {
+     return currencies.STD.symbol +  standardFormat(number);
+   }
+ },
+ SVC:
+ {
+   name: 'Salvadoran Colón',
+   symbol: "₡",
+   formatCurrency: function (number) {
+     return currencies.SVC.symbol +  standardFormat(number);
+   }
+ },
+ SYP:
+ {
+   name: 'Syrian Pound',
+   symbol: "£",
+   formatCurrency: function (number) {
+     return currencies.SYP.symbol +  ' ' + standardFormat(number);
+   }
+ },
+ SZL:
+ {
+   name: 'Swazi Lilangeni',
+   symbol: "E",
+   formatCurrency: function (number) {
+     return currencies.SZL.symbol +  standardFormat(number);
+   }
+ },
+ THB:
+ {
+   name: 'Thai Baht',
+   symbol: "฿",
+   formatCurrency: function (number) {
+     return currencies.THB.symbol +  standardFormat(number);
+   }
+ },
+ TJS:
+ {
+   name: 'Tajikistani Somoni',
+   symbol: 'TJS'
+   formatCurrency: function (number) {
+     return  standardFormat(number, ' ', ';')  + ' ' + currencies.TJS.symbol;
+   }
+ },
+ TMT:
+ {
+   name: 'Turkmenistani Manat',
+   symbol: "m",
+   formatCurrency: function (number) {
+     return  standardFormat(number, ' ', ',') + currencies.TMT.symbol;
+   }
+ },
+ TND:
+ {
+   name: 'Tunisian Dinar',
+   symbol: "د.ت.‏",
+   formatCurrency: function (number) {
+     return currencies.TND.symbol +  ' ' + standardFormat(number, ',', '.', 3 );
+   }
+ },
+ TOP:
+ {
+   name: 'Tongan Pa?anga',
+   "symbol": "T$",
+   formatCurrency: function (number) {
+     return currencies.TOP.symbol +  standardFormat(number);
+   }
+ },
+ TRY:
+ {
+   name: 'Turkish Lira',
+   symbol: "TL",
+   formatCurrency: function (number) {
+     return  standardFormat(number, '.', ',')  + ' ' + currencies.TRY.symbol;
+   }
+ },
+ TTD: {
+   name: 'Trinidad and Tobago Dollar',
+   symbol: "TT$",
+   formatCurrency: function (number) {
+     return currencies.TTD.symbol +  standardFormat(number);
+   }
+ },
+ TVD:
+ {
+   name: 'Tuvaluan Dollar',
+   symbol: '$',
+   formatCurrency: function (number) {
+     return currencies.TVD.symbol +  standardFormat(number);
+   }
+ },
+ TWD:
+ {
+   name: 'New Taiwan Dollar',
+   symbol: "NT$",
+   formatCurrency: function (number) {
+     return currencies.TWD.symbol +  standardFormat(number);
+   }
+ },
+ TZS:
+ {
+   name: 'Tanzanian Shilling',
+   symbol: "TSh",
+   formatCurrency: function (number) {
+     return currencies.TZS.symbol +  standardFormat(number);
+   }
+ },
+ UAH:
+ {
+   name: 'Ukrainian Hryvnia',
+   symbol: "₴",
+   formatCurrency: function (number) {
+     return  standardFormat(number, ' ', ',') + currencies.UAH.symbol;
+   }
+ },
+ UGX:
+ {
+   name: 'Ugandan Shilling',
+   symbol: "USh",
+   formatCurrency: function (number) {
+     return currencies.UGX.symbol +  standardFormat(number);
+   }
+ },
+ USD:
+ {
+   name: 'United States Dollar',
+   symbol: "$",
+   formatCurrency: function (number) {
+     return currencies.USD.symbol +  standardFormat(number);
+   }
+ },
+ UYU:
+ {
+   name: 'Uruguayan Peso',
+   symbol: "$U",
+   formatCurrency: function (number) {
+     return currencies.UYU.symbol +  ' ' + standardFormat(number, '.', ',');
+   }
+ },
+ UZS: {
+   name: 'Uzbekistan Som',
+   symbol: "сўм",
+   formatCurrency: function (number) {
+     return  standardFormat(number, ' ', ',')  + ' ' + currencies.UZS.symbol;
+   }
+ },
+ VEB:
+ {
+   name: 'Venezuelan Bolívar Fuerte',
+   symbol: "Bs.",
+   formatCurrency: function (number) {
+     return currencies.VEB.symbol +  standardFormat(number);
+   }
+ },
+ VEF {
+   name: 'Venezuelan Bolivar',
+   symbol: "Bs. F.",
+   formatCurrency: function (number) {
+     return currencies.VEF.symbol +  ' ' + standardFormat(number, '.', ',');
+   }
+ },
+ VND:
+ {
+   name: 'Vietnamese Dong',
+   symbol: "₫",
+   formatCurrency: function (number) {
+     return  standardFormat(number, '.', ',', 1 )  + ' ' + currencies.VND.symbol;
+   }
+ },
+ VUV:
+ {
+   name: 'Vanuatu Vatu',
+   symbol: "VT",
+   formatCurrency: function (number) {
+     return  noDecimals(number, ',') + currencies.VUV.symbol;
+   }
+ },
+ WST:
+ {
+   name: 'Samoan Tala',
+   symbol: 'WS$',
+   formatCurrency: function (number) {
+     return currencies.WST.symbol +  standardFormat(number);
+   }
+ },
+ XAF:
+ {
+   name: 'CFA Franc BEAC',
+   symbol: "F",
+   formatCurrency: function (number) {
+     return  standardFormat(number) + currencies.XAF.symbol;
+   }
+ },
+ XAG:
+ {
+   name: 'Silver Ounce',
+   symbol: '',
+   formatCurrency: function (number) {
+     return  standardFormat(number);
+   }
+ },
+ XAU:
+ {
+   name: 'Gold Ounce',
+   symbol: '',
+   formatCurrency: function (number) {
+     return  standardFormat(number);
+   }
+ },
+ XCD:
+ {
+   name: 'East Caribbean Dollar',
+   symbol: "$",
+   formatCurrency: function (number) {
+     return currencies.XCD.symbol +  standardFormat(number);
+   }
+ },
+ XOF:
+ {
+   name: 'CFA Franc BCEAO'
+   symbol: "F",
+   formatCurrency: function (number) {
+     return  standardFormat(number, ' ', ',') + currencies.XOF.symbol;
+   }
+ },
+ XPD:
+ {
+   name: 'Palladium Ounce',
+   symbol: "",
+   formatCurrency: function (number) {
+     return  standardFormat(number);
+   }
+ },
+ XPF:
+ {
+   name: 'CFP Franc',
+   symbol: "F",
+   formatCurrency: function (number) {
+     return  standardFormat(number) + currencies.XPF.symbol;
+   }
+ },
+ YER:
+ {
+   name: 'Yemeni Rial',
+   symbol: '﷼',
+   formatCurrency: function (number) {
+     return currencies.YER.symbol +  ' ' + standardFormat(number);
+   }
+ },
+ ZAR:
+ {
+   name: 'South African Rand',
+   symbol: "R",
+   formatCurrency: function (number) {
+     return currencies.ZAR.symbol +  ' ' + standardFormat(number);
+   }
+ },
+ ZMW:
+ {
+   name: 'Zambian Kwacha',
+   symbol: "ZK",
+   formatCurrency: function (number) {
+     return currencies.ZMW.symbol +  standardFormat(number);
+   }
+ },
+ WON:
+ {
+   name: '',
+   symbol: "₩",
+   formatCurrency: function (number) {
+     return currencies.WON.symbol +  standardFormat(number);
+   }
+ }
 }
