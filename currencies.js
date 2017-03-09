@@ -1379,7 +1379,11 @@ function standardFormat(number, intSeparator, floatSeparator, floatPrecision) {
 
 // Currencies with no coins
 function noCoins(number, intSeparator) {
-  standardFormat(number, intSeparator).slice(-3); // Needs work
+  // Set default values
+  number = Number(number) || 0;
+  intSeparator = intSeparator || ',';
+
+  return number.toFixed(0).replace(/(\d)(?=(\d\d\d)+(?!\d))/g, '$1' + intSeparator);
 }
 
 function INRCurrency(number) {
