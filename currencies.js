@@ -51,9 +51,9 @@ var FormatCurrencies = {
     },
     AUD: {
       name: 'Australian Dollar',
-      symbol:  '$',
+      symbol:  'A$',
       countryFormat: function (number) {
-        return '$' + FormatCurrencies.standardFormat(number);
+        return 'A$ ' + FormatCurrencies.standardFormat(number);
       }
     },
     AWG: {
@@ -109,7 +109,7 @@ var FormatCurrencies = {
       name: 'Burundian Franc',
       symbol:  'FBu',
       countryFormat: function (number) {
-      	return  FormatCurrencies.noCoins(number) + 'FBu';
+      	return  FormatCurrencies.noDecimals(number) + 'FBu';
       }
     },
     BMD: {
@@ -137,7 +137,7 @@ var FormatCurrencies = {
       name: 'Brazilian Real',
       symbol:  'R$',
       countryFormat: function (number) {
-      	return 'R$ ' + FormatCurrencies.standardFormat(number, '.', ',');
+      	return 'R$ ' + FormatCurrencies.standardFormat(number);
       }
     },
     BSD: {
@@ -200,7 +200,7 @@ var FormatCurrencies = {
       name: 'Swiss Franc',
       symbol:  'CHF',
       countryFormat: function (number) {
-      	return  FormatCurrencies.standardFormat(number, "'", '.') + ' CHF';
+      	return  "CHF " + FormatCurrencies.standardFormat(number, "'");
       }
     },
     CLF: {
@@ -214,14 +214,14 @@ var FormatCurrencies = {
       name: 'Chilean Peso',
       symbol:  '$',
       countryFormat: function (number) {
-      	return '$ ' + FormatCurrencies.noCoins(number, '.', ',');
+      	return '$ ' + FormatCurrencies.noDecimals(number, '.', ',');
       }
     },
     CNY: {
       name: 'Chinese Yuan',
-      symbol:  '&#x00a5;',
+      symbol:  "&#x5143;",
       countryFormat: function (number) {
-      	return '&#x00a5;' + FormatCurrencies.standardFormat(number);
+      	return "&#x5143;" + FormatCurrencies.standardFormat(number);
       }
     },
     COP: {
@@ -270,7 +270,7 @@ var FormatCurrencies = {
       name: 'Djiboutian Franc',
       symbol:  'Fdj',
       countryFormat: function (number) {
-      	return  FormatCurrencies.noCoins(number) + 'Fdj';
+      	return  FormatCurrencies.noDecimals(number) + 'Fdj';
       }
     },
     DKK: {
@@ -382,7 +382,7 @@ var FormatCurrencies = {
       name: 'Guinean Franc',
       symbol:  'FG',
       countryFormat: function (number) {
-      	return  FormatCurrencies.noCoins(number) + 'FG';
+      	return  FormatCurrencies.noDecimals(number) + 'FG';
       }
     },
     GTQ: {
@@ -509,7 +509,7 @@ var FormatCurrencies = {
       name: 'Japanese Yen',
   		symbol:  '&#x00A5;',
       countryFormat: function (number) {
-        return '&#x00A5; ' + FormatCurrencies.noCoins(number);
+        return '&#x00A5; ' + FormatCurrencies.noDecimals(number);
       }
     },
     KES: {
@@ -537,7 +537,7 @@ var FormatCurrencies = {
       name: 'Comorian Franc',
   		symbol:  'CF',
       countryFormat: function (number) {
-        return FormatCurrencies.noCoins(number) + 'CF';
+        return FormatCurrencies.noDecimals(number) + 'CF';
       }
     },
     KPW: {
@@ -551,7 +551,7 @@ var FormatCurrencies = {
       name: 'South Korean Won',
   		symbol:  '&#x20A9;',
       countryFormat: function (number) {
-        return '&#x20A9;' + FormatCurrencies.noCoins(number);
+        return '&#x20A9;' + FormatCurrencies.noDecimals(number);
       }
     },
     KWD: {
@@ -635,7 +635,7 @@ var FormatCurrencies = {
       name: 'Malagasy Ariary',
       symbol:  'Ar',
       countryFormat: function (number) {
-        return 'Ar' +  FormatCurrencies.noCoins(number, ',');
+        return 'Ar' +  FormatCurrencies.noDecimals(number, ',');
       }
     },
     MKD: {
@@ -817,7 +817,7 @@ var FormatCurrencies = {
       name: 'Paraguayan Guarani',
       symbol:  "&#x20B2;",
       countryFormat: function (number) {
-        return "&#x20B2; " + FormatCurrencies.noCoins(number) ;
+        return "&#x20B2; " + FormatCurrencies.noDecimals(number) ;
       }
     },
     QAR: {
@@ -852,7 +852,7 @@ var FormatCurrencies = {
       name: 'Rwandan Franc',
       symbol:  "RF",
       countryFormat: function (number) {
-        return "RF "+ FormatCurrencies.noCoins(number);
+        return "RF "+ FormatCurrencies.noDecimals(number);
       }
     },
     SAR: {
@@ -892,9 +892,9 @@ var FormatCurrencies = {
     },
     SGD: {
       name: 'Singapore Dollar',
-      symbol:  "$",
+      symbol:  "S$",
       countryFormat: function (number) {
-        return "$" +  FormatCurrencies.standardFormat(number);
+        return "S$ " +  FormatCurrencies.standardFormat(number);
       }
     },
     SHP: {
@@ -1075,14 +1075,14 @@ var FormatCurrencies = {
       name: 'Vietnamese Dong',
       symbol:  "&#x20AB;",
       countryFormat: function (number) {
-        return "&#x20AB;" + FormatCurrencies.noCoins(number, ',');
+        return "&#x20AB;" + FormatCurrencies.noDecimals(number, ',');
       }
     },
     VUV: {
       name: 'Vanuatu Vatu',
       symbol:  "VT",
       countryFormat: function (number) {
-        return "VT" + FormatCurrencies.noCoins(number, ',');
+        return "VT" + FormatCurrencies.noDecimals(number, ',');
       }
     },
     WST: {
@@ -1096,7 +1096,7 @@ var FormatCurrencies = {
       name: 'CFA Franc BEAC',
       symbol:  "FCFA",
       countryFormat: function (number) {
-        return FormatCurrencies.noCoins(number) + " FCFA";
+        return FormatCurrencies.noDecimals(number) + " FCFA";
       }
     },
     XCD: {
@@ -1110,14 +1110,14 @@ var FormatCurrencies = {
       name: 'CFA Franc BCEAO',
       symbol:  "CFA",
       countryFormat: function (number) {
-        return  FormatCurrencies.noCoins(number, ',') + " CFA";
+        return  FormatCurrencies.noDecimals(number, ',') + " CFA";
       }
     },
     XPF: {
       name: 'CFP Franc',
       symbol:  "CFP",
       countryFormat: function (number) {
-        return  FormatCurrencies.noCoins(number) + " CFP";
+        return  FormatCurrencies.noDecimals(number) + " CFP";
       }
     },
     YER: {
@@ -1144,23 +1144,23 @@ var FormatCurrencies = {
   },
 
   // Format example 1,000,000.00
-  standardFormat: function(number, intSeparator, floatSeparator, floatPrecision) {
+  standardFormat: function(number, intSeparator, decimalSeparator, floatPrecision) {
       // Set default values
   		number = Number(number) || 0;
       intSeparator = intSeparator || ',';
-      floatSeparator = floatSeparator || '.';
+      decimalSeparator = decimalSeparator || '.';
       floatPrecision = floatPrecision || 2
 
       // Set floatPrecision
       return number.toFixed(floatPrecision).
         // set intSeparator
         replace(/(\d)(?=(\d{3})+\.)/g, '$1' + intSeparator).
-        // set floatSeparator
-        replace(/\.([^\.]*)$/, floatSeparator + '$1');
+        // set decimalSeparator
+        replace(/\.([^\.]*)$/, decimalSeparator + '$1');
   },
 
   // Currencies with no coins.  Format example 1,000,000
-  noCoins: function(number, intSeparator) {
+  noDecimals: function(number, intSeparator) {
     // Set default values
     number = Number(number) || 0;
     intSeparator = intSeparator || ',';
@@ -1171,8 +1171,8 @@ var FormatCurrencies = {
   // Indian Currency. Format example 10,00,000
   INRCurrency: function(number) {
   	ints = (Number(number) || 0).toFixed(2).slice(0, -3);
-    floats = (Number(number) || 0).toFixed(2).slice(-3);
-    return ints.replace(/(\d)(?=(\d\d)+\d$)/g, "$1,") + floats;
+    decimals = (Number(number) || 0).toFixed(2).slice(-3);
+    return ints.replace(/(\d)(?=(\d\d)+\d$)/g, "$1,") + decimals;
   },
 
   // Format and symbol.  Example $1,000,000.00
