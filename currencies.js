@@ -184,9 +184,9 @@ var FormatCurrencies = {
     },
     CAD: {
       name: 'Canadian Dollar',
-      symbol:  '$',
+      symbol:  'C$',
       countryFormat: function (number) {
-      	return '$' + FormatCurrencies.standardFormat(number);
+      	return 'C$ ' + FormatCurrencies.standardFormat(number);
       }
     },
     CDF: {
@@ -221,7 +221,7 @@ var FormatCurrencies = {
       name: 'Chinese Yuan',
       symbol:  "&#x5143;",
       countryFormat: function (number) {
-      	return "&#x5143;" + FormatCurrencies.standardFormat(number);
+      	return "&#x5143; " + FormatCurrencies.standardFormat(number);
       }
     },
     COP: {
@@ -551,7 +551,7 @@ var FormatCurrencies = {
       name: 'South Korean Won',
   		symbol:  '&#x20A9;',
       countryFormat: function (number) {
-        return '&#x20A9;' + FormatCurrencies.noDecimals(number);
+        return '&#x20A9; ' + FormatCurrencies.noDecimals(number);
       }
     },
     KWD: {
@@ -703,16 +703,16 @@ var FormatCurrencies = {
     },
     MXN: {
       name: 'Mexican Peso',
-      symbol:  '$',
+      symbol:  'Mex$',
       countryFormat: function (number) {
-        return '$' +  FormatCurrencies.standardFormat(number) ;
+        return 'Mex$ ' +  FormatCurrencies.standardFormat(number) ;
       }
     },
     MYR: {
       name: 'Malaysian Ringgit',
       symbol:  'RM',
       countryFormat: function (number) {
-        return 'RM' +  FormatCurrencies.standardFormat(number);
+        return 'RM ' +  FormatCurrencies.standardFormat(number);
       }
     },
     MZN: {
@@ -845,7 +845,7 @@ var FormatCurrencies = {
       name: 'Russian Ruble',
       symbol:  "&#x20BD;",
       countryFormat: function (number) {
-        return  FormatCurrencies.standardFormat(number, " ", ",")  + " &#x20BD;";
+        return " &#x20BD; " + FormatCurrencies.standardFormat(number, ",", ".");
       }
     },
     RWF: {
