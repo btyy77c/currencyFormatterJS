@@ -1,0 +1,24 @@
+{
+  "name": "format-currencies",
+  "description": "Simple single file js to convert a number into a currency format",
+  "main": "currencies.js",
+  "authors": [
+    "Emily Ring"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "currency",
+    "currencies",
+    "formatter",
+    "javascript",
+    "money"
+  ],
+  "homepage": "https://github.com/btyy77c/currencyFormatterJS",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
